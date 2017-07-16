@@ -25,16 +25,12 @@
 </template>
 
 <script>
+  import config from '../../common/config.js'
+  import { Toast } from 'mint-ui';
   export default {
-    data () {
+    data() {
       return {
-        list: [{
-          url: 'http://www.itcast.cn/subject/phoneweb/index.html',
-          img: 'http://ofv795nmp.bkt.clouddn.com/vuelogobanner1.jpg'
-        }, {
-          url: 'http://www.itcast.cn/subject/phoneweb/index.html',
-          img: 'http://ofv795nmp.bkt.clouddn.com/vuelogobanner2-1.jpg'
-        }],
+        list: [],
         navList:[
           {
             imgSrc: '../../../statics/images/menu3.png',
@@ -71,7 +67,15 @@
     },
     methods: {
 
-    }
+    },
+    mounted() {
+      // 通过 this.$http.get 方法发送 ajax 请求，获取数据
+      this.$http.get( `${config.baseUrl}/api/getlunbo` ).then(response => {
+        this.list = response.body.message || [];
+      }, response => {
+        Toast( '网络似乎不太好，请稍后重试' )
+      });
+    },
   }
 </script>
 
@@ -81,7 +85,7 @@
   height: 200px;
 }
 .mint-swipe-item {
-  background-color: pink;
+  background-color: #efeff4;
 }
 .mint-swipe-item > a {
   display: block;

@@ -22,6 +22,12 @@ Vue.use(VueRouter)
 /* ============= E 引入路由  ============== */
 
 		
+/* ============= S 导入 VueResource   ============== */
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+/* ============= E 导入 VueResource  ============== */
+
+		
 
 /* ============= S 引入组件   ============== */
 import Home from './components/home/Home.vue'
