@@ -1,41 +1,30 @@
 <template>
   <div id="app">
+    <!-- 整个系统的头部 -->
     <mt-header fixed title="Vue CMS 管理系统"></mt-header>
-    <div>
-      <input type='button' value='test' @click="toastSomething"/>
-    </div>
-    <mt-button type="primary" @click="toastSomething">你好，朋友</mt-button>
-    <div class="mui-content">
-      <ul class="mui-table-view mui-grid-view mui-grid-9">
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-home"></span>
-                  <div class="mui-media-body">Home</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-                  <div class="mui-media-body">Email</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-chatbubble"></span>
-                  <div class="mui-media-body">Chat</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-location"></span>
-                  <div class="mui-media-body">location</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-search"></span>
-                  <div class="mui-media-body">Search</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-phone"></span>
-                  <div class="mui-media-body">Phone</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-gear"></span>
-                  <div class="mui-media-body">Setting</div></a></li>
-          <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-info"></span>
-                  <div class="mui-media-body">about</div></a></li>
-         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                  <span class="mui-icon mui-icon-more"></span>
-                  <div class="mui-media-body">more</div></a></li>
-      </ul> 
-    </div>
+    
+    <!-- 路由占位 -->
+    <router-view></router-view>
+
+    <nav class="mui-bar mui-bar-tab">
+      <router-link to="home" class="mui-tab-item">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+      </router-link>
+      <router-link to="member" class="mui-tab-item">
+        <span class="mui-icon mui-icon-person"></span>
+        <span class="mui-tab-label">会员</span>
+      </router-link>
+      <router-link to="shopping" class="mui-tab-item">
+        <span class="mui-icon mui-icon-star"></span>
+        <span class="mui-tab-label">购物</span>
+      </router-link>
+      <router-link to="search" class="mui-tab-item">
+        <span class="mui-icon mui-icon-search"></span>
+        <span class="mui-tab-label">搜索</span>
+      </router-link>
+    </nav>
+
   </div>
 </template>
 
@@ -51,14 +40,21 @@
       }
     },
     methods: {
-      toastSomething() {
-        Toast( 'Hello Dj' )
-      }
+
     }
   }
 </script>
 
 <style>
+html,body {
+  height: 100%;
+  width: 100%;
+}
 
+#app {
+  height: 100%;
+  width: 100%;
+  padding-top: 40px;
+}
 
 </style>

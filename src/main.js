@@ -4,11 +4,7 @@ import Vue from 'vue'
 import MintUI from 'mint-ui'
 // 导入 Mint UI CSS
 import 'mint-ui/lib/style.css'
-// 按需引入
-// import { Button } from 'mint-ui';
-// Vue.component( Button.name, Button )
-// 如果项目中需要引入很多的 Mint-UI 的内容
-// 最简单的方式就是在 main.js 中全部引入
+// 需要引入很多组件,最简单的方式就是 main.js 中全部引入
 Vue.use( MintUI )                                  
 /* ============= E 导入 MintUI  ============== */
 
@@ -19,11 +15,37 @@ import '../statics/css/icons-extra.css'
 /* ============= E 导入 Mui 组件  ============== */
 
 
+		
+/* ============= S 引入路由   ============== */
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+/* ============= E 引入路由  ============== */
 
-// 导入 组件
+		
+
+/* ============= S 引入组件   ============== */
+import Home from './components/home/Home.vue'
+import Member from './components/member/Member.vue'
+import Shopping from './components/shopping/Shopping.vue'
+import Search from './components/search/Search.vue'
 import App from './App.vue'
+/* ============= E 引入组件  ============== */
+
+
+// 创建 router 实例
+const router = new VueRouter({
+	linkActiveClass: 'mui-active',
+  routes:[
+		{ path: 'home', component: Home },
+  	{ path: 'member', component: Member },
+  	{ path: 'shopping', component: Shopping },
+  	{ path: 'search', component: Search }
+	]
+})
+
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router
 })
