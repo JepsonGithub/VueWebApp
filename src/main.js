@@ -36,10 +36,11 @@ import App from './App.vue'
 const router = new VueRouter({
 	linkActiveClass: 'mui-active',
   routes:[
-		{ path: 'home', component: Home },
-  	{ path: 'member', component: Member },
-  	{ path: 'shopping', component: Shopping },
-  	{ path: 'search', component: Search }
+   	{ name: 'root', path: '/', redirect: 'home' },
+		{ name: 'home', path: 'home', component: Home },
+  	{ name: 'member', path: 'member', component: Member },
+  	{ name: 'shopping', path: 'shopping', component: Shopping },
+  	{ name: 'search', path: 'search', component: Search }
 	]
 })
 
