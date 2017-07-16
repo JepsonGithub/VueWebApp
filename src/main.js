@@ -1,5 +1,6 @@
 import Vue from 'vue'
-// 导入 Mint UI 模块 
+
+/* ============= S 导入 MintUI   ============== */
 import MintUI from 'mint-ui'
 // 导入 Mint UI CSS
 import 'mint-ui/lib/style.css'
@@ -8,7 +9,15 @@ import 'mint-ui/lib/style.css'
 // Vue.component( Button.name, Button )
 // 如果项目中需要引入很多的 Mint-UI 的内容
 // 最简单的方式就是在 main.js 中全部引入
-Vue.use( MintUI )
+Vue.use( MintUI )                                  
+/* ============= E 导入 MintUI  ============== */
+
+		
+/* ============= S 导入 Mui 组件   ============== */
+import '../statics/css/mui.css'
+import '../statics/css/icons-extra.css'
+/* ============= E 导入 Mui 组件  ============== */
+
 
 
 // 导入 组件
