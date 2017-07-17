@@ -1,13 +1,8 @@
 <template>
   <div class="tpl">
-
-    <!-- mint-UI 实现轮播图效果 -->
-    <mt-swipe :auto="2000">
-      <mt-swipe-item v-for='item in list'>
-        <a :href="item.url"><img :src="item.img" alt=""></a>
-      </mt-swipe-item>
-    </mt-swipe>
-
+    <!-- 封装轮播图组件 toggleSilder -->
+    <!-- 通过 v-bind:prop 传递过去 -->
+    <toggle-slider :sliderlist='list' ></toggle-slider>
 
     <!-- mui-9-宫格实现导航效果 -->
     <div class="mui-content">
@@ -25,6 +20,9 @@
 </template>
 
 <script>
+  // 导入轮播图 组件
+  import ToggleSilder from '../../subcomponents/ToggleSilder.vue'
+
   import config from '../../common/config.js'
   import { Toast } from 'mint-ui';
   export default {
@@ -76,28 +74,15 @@
         Toast( '网络似乎不太好，请稍后重试' )
       });
     },
+    // 局部注册组件
+    components: {
+      // <toggle-slider> 将只在父模板可用
+      'toggle-slider': ToggleSilder
+    }
   }
 </script>
 
 <style scoped>
-/* 轮播图 样式 */
-.mint-swipe {
-  height: 200px;
-}
-.mint-swipe-item {
-  background-color: #efeff4;
-}
-.mint-swipe-item > a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.mint-swipe-item img {
-  height: 200px;
-  width: 100%;
-}
-
-
 /* 9 宫格 导航栏的 样式 */
 .mui-content > .mui-table-view:first-child {
   margin-top: 0;
