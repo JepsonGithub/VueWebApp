@@ -8,10 +8,10 @@
     <div class="mui-content">
       <ul class="mui-table-view mui-grid-view mui-grid-9">
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" v-for="item in navList">
-          <a href="#">
+          <router-link :to="item.routeUrl">
             <img :src="item.imgSrc">
             <span>{{ item.title }}</span>
-          </a>
+          </router-link>
         </li>
       </ul> 
     </div>
@@ -24,6 +24,7 @@
   import ToggleSilder from '../../subcomponents/ToggleSilder.vue'
 
   import config from '../../common/config.js'
+  
   import { Toast } from 'mint-ui';
   export default {
     data() {
@@ -33,7 +34,7 @@
           {
             imgSrc: '../../../statics/images/menu3.png',
             title: '新闻资讯',
-            routeUrl: '#'
+            routeUrl: '/news/list'
           },
           {
             imgSrc: '../../../statics/images/menu4.png',

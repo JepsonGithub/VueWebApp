@@ -1,5 +1,5 @@
 <template>
-  <div class="tpl">
+  <div>
     <!-- mint-UI 实现轮播图效果 -->
     <mt-swipe :auto="2000">
       <mt-swipe-item v-for='item in sliderlist'>
